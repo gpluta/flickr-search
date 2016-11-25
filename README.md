@@ -17,7 +17,7 @@ You will need the following things properly installed on your computer.
 
 * `git clone <repository-url>` this repository
 * `cd flickr-search`
-* `npm install`
+* `npm install` or `yarn`
 * `bower install`
 
 ## Running / Development
