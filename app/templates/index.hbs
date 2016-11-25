@@ -1,0 +1,39 @@
+{{#link-to (query-params page=prevLink) class="" }}&lt; previous{{/link-to}} |
+{{#link-to (query-params page=nextLink) class="" }}next &gt;{{/link-to}}
+
+{{input enter='performSearch'}}
+
+<hr>
+Page: {{model.photos.page}}
+|
+Pages: {{model.photos.pages}}
+|
+Total: {{model.photos.total}}
+|
+Per page: {{model.photos.perpage}}
+|
+<button {{action 'debug'}}>DEBUG</button>
+<hr>
+
+<div class="simple-grid">
+  {{#each model.photos.photo as |photo|}}
+    <div class="box">
+      {{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_b.jpg" alt="">--}}
+      {{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_n.jpg" alt="">--}}
+
+      {{flickr-thumbnail
+        photoTitle=photo.title
+        photoFarm=photo.farm
+        photoServer=photo.server
+        photoId=photo.id
+        photoSecret=photo.secret}}
+
+    </div>
+  {{/each}}
+</div>
+<!--_[mstzb]-->
+
+<hr>
+
+
+{{outlet}}

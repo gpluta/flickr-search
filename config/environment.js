@@ -20,7 +20,10 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    }
+    },
+
+    flickrApiKey: '44741224c786f2611483aa649ea3ca5a',
+    flickrApiEndpoint: 'https://api.flickr.com/services/rest/?'
   };
 
   if (environment === 'development') {

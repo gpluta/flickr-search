@@ -1,0 +1,46 @@
+//mq: 640 1024
+
+.simple-grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .box {
+    border: 1px solid red;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .simple-grid {
+    .box {
+      width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) and (min-width: 641px) {
+  .simple-grid {
+    .box {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .simple-grid {
+    .box {
+      width: 25%;
+    }
+  }
+}
+
+//@media screen and (min-width: 1200px) {
+//  .simple-grid {
+//    .box {
+//      width: 20%;
+//    }
+//  }
+//}
