@@ -7,6 +7,7 @@ export default Ember.Route.extend({
     search: {
       refreshModel: true
     },
+
     page: {
       refreshModel: true
     }
@@ -22,14 +23,43 @@ export default Ember.Route.extend({
       text: params.search,
       page: params.page,
       privacy_filter: 1, // Show only public photos
-      content_type: 1 // Only "photos"
+      content_type: 1, // Only "photos"
     });
 
-    console.log('query params: ', queryParams);
+    this.set('previousSearch', params.search);
 
     if (params.search) {
       return fetch(config.flickrApiEndpoint + queryParams)
         .then(r => r.json());
+    }
+  },
+
+  // A poperty holding the most recently performed search text value
+  previousSearch: '',
+
+  setupController(controller, model) {
+    this._super(controller, model);
+
+    this.controller.setProperties({
+      previousSearch: this.get('previousSearch')
+    });
+  },
+
+  actions: {
+    refreshModel() {
+      this.refresh();
+    },
+
+    loading() {
+      this.controllerFor('index').setProperties({
+        modelIsLoading: true
+      });
+    },
+
+    didTransition() {
+      this.controllerFor('index').setProperties({
+        modelIsLoading: false
+      });
     }
   }
 });

@@ -2,14 +2,12 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   queryParams: ['search', 'page'],
-  search: 'agha',
+  search: '',
   page: 1,
 
   nextLink: Ember.computed('page', function() {
     let candidate = parseInt(this.get('page')) + 1;
-
     let total = parseInt(this.get('model.photos.pages'));
-
     console.log('total, in computed prop', this.model);
     return candidate >= total ? total : candidate;
   }),
@@ -19,8 +17,11 @@ export default Ember.Controller.extend({
     return candidate < 1 ? 1 : candidate;
   }),
 
+  modelIsLoading: true,
+
   actions: {
-    performSearch(e) {
+    executeSearch(e) {
+      console.log('performing search');
       this.set('search', e);
     },
 

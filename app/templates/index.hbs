@@ -1,7 +1,7 @@
 {{#link-to (query-params page=prevLink) class="" }}&lt; previous{{/link-to}} |
 {{#link-to (query-params page=nextLink) class="" }}next &gt;{{/link-to}}
 
-{{input enter='performSearch'}}
+{{input enter='executeSearch' value=previousSearch}}
 
 <hr>
 Page: {{model.photos.page}}
@@ -15,22 +15,34 @@ Per page: {{model.photos.perpage}}
 <button {{action 'debug'}}>DEBUG</button>
 <hr>
 
-<div class="simple-grid">
-  {{#each model.photos.photo as |photo|}}
-    <div class="box">
-      {{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_b.jpg" alt="">--}}
-      {{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_n.jpg" alt="">--}}
+{{#if search}}
+  {{#if modelIsLoading}}
+    LOADING MODEL
+  {{else}}
+    <div class="simple-grid">
+      {{#each model.photos.photo as |photo|}}
+        <div class="box">
+          {{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_b.jpg" alt="">--}}
+          {{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_n.jpg" alt="">--}}
 
-      {{flickr-thumbnail
-        photoTitle=photo.title
-        photoFarm=photo.farm
-        photoServer=photo.server
-        photoId=photo.id
-        photoSecret=photo.secret}}
+          {{flickr-thumbnail
+            photoTitle=photo.title
+            photoFarm=photo.farm
+            photoServer=photo.server
+            photoId=photo.id
+            photoSecret=photo.secret}}
 
+        </div>
+
+        {{else}}
+        NO RESULTS :( Try searching for something else, like 'kittens'.
+      {{/each}}
     </div>
-  {{/each}}
-</div>
+  {{/if}}
+{{else}}
+  Please enter search term
+{{/if}}
+
 <!--_[mstzb]-->
 
 <hr>
