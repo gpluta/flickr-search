@@ -2,3 +2,12 @@ $font-color: #404040;
 $light-gray: #f6f6f6;
 $gray: #e5e5e5;
 $dark-gray: #b2b2b2;
+
+$flickr-pink: #ff0084;
+$flickr-blue: #0063DC;
+
+.color-flickr-pink {
+  color: $flickr-pink;
+  background: white;
+  padding: 0 3px;
+}

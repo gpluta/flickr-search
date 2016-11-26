@@ -1,3 +1,7 @@
+{{#if searchPhrase}}
+  <div class="current-search">showing results for: <strong>{{searchPhrase}}</strong></div>
+{{/if}}
+
 {{#if modelIsLoading}}
   {{loading-indicator}}
 {{else}}

@@ -1,0 +1,35 @@
+.resource-pagination {
+  margin: 20px 0;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.prev-link, .next-link {
+
+  .fa {
+    display: inline;
+  }
+
+  a {
+    border: 2px solid $flickr-blue;
+    color: $flickr-pink;
+    border-radius: 3px;
+    padding: 3px 10px;
+    text-decoration: none;
+
+    &:hover {
+      border-color: $flickr-pink;
+      background: $flickr-pink;
+      color: white;
+    }
+  }
+}
+
+.pagination-status {
+
+  .separator {
+    color: $flickr-blue;
+    margin: 0 10px;
+  }
+}

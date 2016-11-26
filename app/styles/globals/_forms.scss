@@ -6,11 +6,19 @@
   font-size: 30px;
   border: 3px solid $gray;
   border-radius: 3px;
+  text-align: center;
 
   transition: all .2s;
 
-  &:focus {
+  &:focus, &:hover {
     outline: none;
-    border-color: $dark-gray;
+    border-color: $flickr-pink;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .flickr-search-input {
+    font-size: 16px;
+    padding: 10px 15px;
   }
 }

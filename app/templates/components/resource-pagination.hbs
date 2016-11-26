@@ -1,6 +1,13 @@
 {{#if totalPages}}
   {{log totalPages}}
-  {{#link-to (query-params page=prevLink) class="" }}&lt; previous{{/link-to}}
-  [ {{currentPage}} / {{totalPages}} ]
-  {{#link-to (query-params page=nextLink) class="" }}next &gt;{{/link-to}}
+
+  <div class="prev-link">
+    {{#link-to (query-params page=prevLink) class="" }}{{fa-icon "angle-left"}} previous{{/link-to}}
+  </div>
+
+  <div class="pagination-status">page {{currentPage}}<span class="separator">/</span>{{totalPages}}</div>
+
+  <div class="next-link">
+    {{#link-to (query-params page=nextLink) class="" }}next {{fa-icon "angle-right"}}{{/link-to}}
+  </div>
 {{/if}}

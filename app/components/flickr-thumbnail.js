@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Component.extend({
   classNames: ['thumb-container'],
 
-  // Parameters passed to component
+  // Properties passed to component in template
   photoTitle: null,
   photoFarm: null,
   photoServer: null,

@@ -8,11 +8,15 @@ body {
 }
 
 header .header {
-  background: $dark-gray;
+  background: $flickr-blue;
   color: white;
   padding: 30px 10px;
   text-align: center;
   font-size: 30px;
+
+  small {
+    font-size: 16px;
+  }
 }
 
 footer .footer {
