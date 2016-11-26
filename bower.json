@@ -2,6 +2,7 @@
   "name": "flickr-search",
   "dependencies": {
     "ember": "~2.9.0",
-    "ember-cli-shims": "0.1.3"
+    "ember-cli-shims": "0.1.3",
+    "normalize-css": "normalize.css#^5.0.0"
   }
 }
