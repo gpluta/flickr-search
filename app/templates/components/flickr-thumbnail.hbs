@@ -1,6 +1,8 @@
-<h3>
-  {{if-else photoTitle photoTitle 'no title :('}}
-</h3>
+<img
+  src="https://farm{{photoFarm}}.staticflickr.com/{{photoServer}}/{{photoId}}_{{photoSecret}}_n.jpg"
+  alt="{{if-else photoTitle photoTitle ''}}">
 
-<img src="https://farm{{photoFarm}}.staticflickr.com/{{photoServer}}/{{photoId}}_{{photoSecret}}_n.jpg"
-     alt="{{if-else photoTitle photoTitle ''}}">
+
+
+{{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_b.jpg" alt="">--}}
+{{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_n.jpg" alt="">--}}

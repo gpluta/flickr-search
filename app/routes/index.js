@@ -17,7 +17,7 @@ export default Ember.Route.extend({
     let queryParams = $.param({
       method: 'flickr.photos.search',
       api_key: config.flickrApiKey,
-      per_page: 10,
+      per_page: 12,
       format: 'json',
       nojsoncallback: 1, // We want plain json, not jsonp
       text: params.search,

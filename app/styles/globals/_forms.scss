@@ -1,0 +1,14 @@
+.flickr-search-input {
+  color: $font-color;
+  margin: 30px 0;
+  padding: 20px 30px;
+  width: 100%;
+  font-size: 30px;
+  border: 2px solid $gray;
+  border-radius: 3px;
+
+  &:focus {
+    outline: none;
+    border-color: $dark-gray;
+  }
+}

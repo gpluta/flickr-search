@@ -1,51 +1,43 @@
-{{#link-to (query-params page=prevLink) class="" }}&lt; previous{{/link-to}} |
-{{#link-to (query-params page=nextLink) class="" }}next &gt;{{/link-to}}
+<div class="container">
+  {{input placeholder="What images are you looking for?" enter='executeSearch' value=previousSearch
+          class="flickr-search-input"}}
+</div>
 
-{{input enter='executeSearch' value=previousSearch}}
+<div class="container">
+  {{#link-to (query-params page=prevLink) class="" }}&lt; previous{{/link-to}}
+  |
+  {{#link-to (query-params page=nextLink) class="" }}next &gt;{{/link-to}}
+  |
+  Page: {{model.photos.page}}
+  |
+  Pages: {{model.photos.pages}}
+  |
+  Total: {{model.photos.total}}
+  |
+  Per page: {{model.photos.perpage}}
+</div>
 
-<hr>
-Page: {{model.photos.page}}
-|
-Pages: {{model.photos.pages}}
-|
-Total: {{model.photos.total}}
-|
-Per page: {{model.photos.perpage}}
-|
-<button {{action 'debug'}}>DEBUG</button>
-<hr>
-
-{{#if search}}
-  {{#if modelIsLoading}}
-    LOADING MODEL
-  {{else}}
-    <div class="simple-grid">
-      {{#each model.photos.photo as |photo|}}
-        <div class="box">
-          {{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_b.jpg" alt="">--}}
-          {{!--<img src="https://farm{{photo.farm}}.staticflickr.com/{{photo.server}}/{{photo.id}}_{{photo.secret}}_n.jpg" alt="">--}}
-
-          {{flickr-thumbnail
-            photoTitle=photo.title
-            photoFarm=photo.farm
-            photoServer=photo.server
-            photoId=photo.id
-            photoSecret=photo.secret}}
-
-        </div>
-
+<div class="container">
+  {{#if search}}
+    {{#if modelIsLoading}}
+      {{loading-indicator}}
+    {{else}}
+      <div class="simple-grid">
+        {{#each model.photos.photo as |photo|}}
+          <div class="box">
+            {{flickr-thumbnail
+              photoTitle=photo.title
+              photoFarm=photo.farm
+              photoServer=photo.server
+              photoId=photo.id
+              photoSecret=photo.secret}}
+          </div>
         {{else}}
-        NO RESULTS :( Try searching for something else, like 'kittens'.
-      {{/each}}
-    </div>
+          NO RESULTS :( Try searching for something else, like 'kittens'.
+        {{/each}}
+      </div>
+    {{/if}}
+  {{else}}
+    Please enter search term
   {{/if}}
-{{else}}
-  Please enter search term
-{{/if}}
-
-<!--_[mstzb]-->
-
-<hr>
-
-
-{{outlet}}
+</div>
