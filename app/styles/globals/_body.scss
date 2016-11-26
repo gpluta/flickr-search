@@ -6,3 +6,18 @@ body {
   min-width: 320px;
   color: $font-color;
 }
+
+header .header {
+  background: $dark-gray;
+  color: white;
+  padding: 30px 10px;
+  text-align: center;
+  font-size: 30px;
+}
+
+footer .footer {
+  background: $light-gray;
+  margin-top: 30px;
+  padding: 30px 10px;
+  text-align: right;
+}

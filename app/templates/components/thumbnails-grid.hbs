@@ -1,0 +1,30 @@
+{{#if modelIsLoading}}
+  {{loading-indicator}}
+{{else}}
+  <div class="simple-grid">
+    {{#if searchPhrase}}
+      {{#each photos as |photo|}}
+        <div class="box">
+          {{flickr-thumbnail
+            photoTitle=photo.title
+            photoFarm=photo.farm
+            photoServer=photo.server
+            photoId=photo.id
+            photoSecret=photo.secret}}
+        </div>
+      {{else}}
+        <div class="search-result-info">
+          No results :( Try searching for something else, like&nbsp;
+          {{#link-to (query-params search="kittens" page=1)}}'kittens'{{/link-to}} or
+          {{#link-to (query-params search="puppies" page=1)}}'puppies'{{/link-to}}
+        </div>
+      {{/each}}
+    {{else}}
+      <div class="search-result-info">
+        Please enter search term, so I can display something! Try searching for&nbsp;
+        {{#link-to (query-params search="puppies" page=1)}}puppies{{/link-to}} or
+        {{#link-to (query-params search="kittens" page=1)}}kittens{{/link-to}}.
+      </div>
+    {{/if}}
+  </div>
+{{/if}}

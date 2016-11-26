@@ -4,40 +4,30 @@
 </div>
 
 <div class="container">
-  {{#link-to (query-params page=prevLink) class="" }}&lt; previous{{/link-to}}
-  |
-  {{#link-to (query-params page=nextLink) class="" }}next &gt;{{/link-to}}
-  |
-  Page: {{model.photos.page}}
-  |
-  Pages: {{model.photos.pages}}
-  |
-  Total: {{model.photos.total}}
-  |
-  Per page: {{model.photos.perpage}}
+  {{resource-pagination
+  nextLink=nextLink
+  prevLink=prevLink
+  currentPage=model.photos.page
+  totalPages=model.photos.pages
+  totalElements=totalElements
+  }}
 </div>
 
 <div class="container">
-  {{#if search}}
-    {{#if modelIsLoading}}
-      {{loading-indicator}}
-    {{else}}
-      <div class="simple-grid">
-        {{#each model.photos.photo as |photo|}}
-          <div class="box">
-            {{flickr-thumbnail
-              photoTitle=photo.title
-              photoFarm=photo.farm
-              photoServer=photo.server
-              photoId=photo.id
-              photoSecret=photo.secret}}
-          </div>
-        {{else}}
-          NO RESULTS :( Try searching for something else, like 'kittens'.
-        {{/each}}
-      </div>
-    {{/if}}
-  {{else}}
-    Please enter search term
-  {{/if}}
+    {{thumbnails-grid
+    modelIsLoading=modelIsLoading
+    photos=model.photos.photo
+    searchPhrase=search
+    totalElements=totalElements
+    }}
+</div>
+
+<div class="container">
+  {{resource-pagination
+    nextLink=nextLink
+    prevLink=prevLink
+    currentPage=model.photos.page
+    totalPages=model.photos.pages
+    totalElements=totalElements
+   }}
 </div>

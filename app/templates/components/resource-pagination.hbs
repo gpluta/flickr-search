@@ -1,0 +1,6 @@
+{{#if totalPages}}
+  {{log totalPages}}
+  {{#link-to (query-params page=prevLink) class="" }}&lt; previous{{/link-to}}
+  [ {{currentPage}} / {{totalPages}} ]
+  {{#link-to (query-params page=nextLink) class="" }}next &gt;{{/link-to}}
+{{/if}}
