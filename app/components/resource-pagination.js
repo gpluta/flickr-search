@@ -8,13 +8,5 @@ export default Ember.Component.extend({
   prevLink: null,
   currentPage: null,
   totalPages: null,
-  totalElements: null,
-
-  prevLinkActive: Ember.computed('nextLink', function() {
-    //
-  }),
-
-  nextLinkActive: Ember.computed('prevLink', function() {
-    //
-  }),
+  totalElements: null
 });

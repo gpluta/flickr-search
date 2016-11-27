@@ -29,14 +29,14 @@ export default Ember.Controller.extend({
   }),
 
   /**
-   *  Convert total pages to int (from string)
+   *  CP converting total pages to integer
    */
   totalElements: Ember.computed('model.photos.total', function() {
     return parseInt(this.get('model.photos.total'));
   }),
 
-  // A property updated from root, indicating if model is loading or if it has finished loading
-  // It is used to display the loading indicator.
+  // A property updated from route, indicating if model is loading or if it has finished loading
+  // It is used to displaying the loading indicator (or not).
   modelIsLoading: true,
 
   /**
