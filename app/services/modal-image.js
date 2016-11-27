@@ -36,7 +36,6 @@ export default Ember.Service.extend({
 
     $(document).on('keyup.modalDialog', e => {
       if (e.keyCode === 27) {
-        console.log('ECS');
         this.destroyModal();
       }
     })

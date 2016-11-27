@@ -1,17 +1,6 @@
 # Flickr-search
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
-
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM)
-* [Bower](http://bower.io/)
-* [Ember CLI](http://ember-cli.com/)
-* [PhantomJS](http://phantomjs.org/)
+This is a simple app demonstrating integration of an Ember.js app with flickr API.
 
 ## Installation
 
@@ -20,34 +9,12 @@ You will need the following things properly installed on your computer.
 * `npm install` or `yarn`
 * `bower install`
 
-## Running / Development
+## Running the app
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+* `ember s`
 
-### Code Generators
+CAUTION! The production build of this app has `ENV.rootURL` set to `flickr-search`, as I am hosting this app for demo on my website under a dedicated url. If you want to play with this apps production build be sure to modify `ENV.rootURL` to suit your needs. 
 
-Make use of the many generators for code, try `ember help generate` for more details
+## DEMO
 
-### Running Tests
-
-* `ember test`
-* `ember test --server`
-
-### Building
-
-* `ember build` (development)
-* `ember build --environment production` (production)
-
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* [ember.js](http://emberjs.com/)
-* [ember-cli](http://ember-cli.com/)
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+As mentioned above, the app has been deployed here https://www.commodum.pl/flickr-search/
