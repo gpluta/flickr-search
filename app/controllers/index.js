@@ -29,13 +29,24 @@ export default Ember.Controller.extend({
 
   modelIsLoading: true,
 
+  executeSearch(s) {
+    if (s != '') {
+      this.setProperties({
+        search: s,
+        page: 1
+      });
+    }
+  },
+
   actions: {
-    executeSearch(e) {
-      if (e != '') {
-        this.setProperties({
-          search: e,
-          page: 1
-        });
+    handleEnterOnSearchInput(e) {
+      this.executeSearch(e);
+    },
+
+    executeSearchWithSearchIcon() {
+      let val = $('.flickr-search-input').val();
+      if(val) {
+        this.executeSearch(val);
       }
     }
   }

@@ -1,25 +1,16 @@
 <div class="container">
-  {{input placeholder="What are you looking for?" enter='executeSearch' value=previousSearch
-          class="flickr-search-input"}}
-</div>
+  <div class="search-input-container">
 
-<div class="container">
-  {{resource-pagination
-  nextLink=nextLink
-  prevLink=prevLink
-  currentPage=model.photos.page
-  totalPages=model.photos.pages
-  totalElements=totalElements
-  }}
-</div>
-
-<div class="container">
-    {{thumbnails-grid
-    modelIsLoading=modelIsLoading
-    photos=model.photos.photo
-    searchPhrase=search
-    totalElements=totalElements
+    <div class="flickr-search-icon" {{action "executeSearchWithSearchIcon"}}>
+      {{fa-icon "search"}}
+    </div>
+    {{input
+      placeholder="What are you looking for?"
+      enter='handleEnterOnSearchInput'
+      value=previousSearch
+      class="flickr-search-input"
     }}
+  </div>
 </div>
 
 <div class="container">
@@ -29,5 +20,24 @@
     currentPage=model.photos.page
     totalPages=model.photos.pages
     totalElements=totalElements
-   }}
+  }}
+</div>
+
+<div class="container">
+  {{thumbnails-grid
+    modelIsLoading=modelIsLoading
+    photos=model.photos.photo
+    searchPhrase=search
+    totalElements=totalElements
+  }}
+</div>
+
+<div class="container">
+  {{resource-pagination
+    nextLink=nextLink
+    prevLink=prevLink
+    currentPage=model.photos.page
+    totalPages=model.photos.pages
+    totalElements=totalElements
+  }}
 </div>

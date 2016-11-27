@@ -16,7 +16,7 @@ export default Ember.Service.extend({
 <div class="modal-blanket">
   <div class="modal-content">
     <div class="modal-header">
-      <span id="closeModal">CLOSE</span>
+      <span id="closeModal">CLOSE <small>[esc]</small></span>
     </div>
     <div class="content-image">
       <img src="${imageUrl}" alt="">
@@ -26,7 +26,6 @@ export default Ember.Service.extend({
     `);
 
     // Add event listeners
-
     $('.modal-blanket').on('click.modalDialog', e => {
       if ($(e.target).hasClass('modal-blanket')) {
         this.destroyModal();
