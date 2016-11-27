@@ -21,6 +21,6 @@ export default Ember.Component.extend({
   }),
 
   click() {
-    this.get('modal').showModal(this.get('photoFullUrl'), this.get('photoTitle'));
+    this.get('modal').showModal(this.get('photoFullUrl'));
   }
 });

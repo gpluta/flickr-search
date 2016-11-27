@@ -1,12 +1,11 @@
 import Ember from 'ember';
-import escapeHtml from "../utils/escape-html";
 
 export default Ember.Service.extend({
-  mountModal() {
-    //
-  },
-
-  showModal(imageUrl, imageTitle) {
+  /**
+   * Render a modal
+   * @param {String} imageUrl - an url of the image to be rendered
+   */
+  showModal(imageUrl) {
     let anchor;
     $('body').append(`<div id="modal-anchor"></div>`)
     anchor = $('#modal-anchor');
@@ -20,8 +19,8 @@ export default Ember.Service.extend({
     </div>
     <div class="content-image">
       <img src="${imageUrl}" alt="">
-    </div>    
-  </div>  
+    </div>
+  </div>
 </div>
     `);
 
@@ -41,6 +40,9 @@ export default Ember.Service.extend({
     })
   },
 
+  /**
+   * Destroy the modal, along with the attached event listeners
+   */
   destroyModal() {
     if ($('#modal-anchor').length) {
       // Remove event listeners

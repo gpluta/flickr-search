@@ -1,3 +1,7 @@
+/**
+ * Replace all 'dangerous' cahrs with their html entities
+ * @param {String} someHtml
+ */
 export function escapeHtml(someHtml) {
   let entityMap = {
     "&": "&amp;",
