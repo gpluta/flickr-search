@@ -103,7 +103,7 @@
 
   <script>
     window.addEventListener('load', function() {
-      document.getElementById('app-init-loading-ind').remove();
+      document.getElementsByTagName('body')[0].removeChild(document.getElementById('app-init-loading-ind'));
     });
   </script>
 
